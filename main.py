@@ -2,7 +2,7 @@ from telebot import TeleBot, custom_filters
 from telebot.storage import StateMemoryStorage
 from telebot.handler_backends import State, StatesGroup
 
-from modules.Interface import Interface
+from modules.Interface import Interface, clear_terminal
 from modules.English_DB import *
 from modules.Student import Student
 from modules.program import get_info
@@ -10,7 +10,9 @@ from modules.program import get_info
 
 # check or gather needed info
 token_bot, db_username, db_password = get_info()
+clear_terminal()
 
+print('Bot is being initialized')
 # Bot setup
 state_storage = StateMemoryStorage()
 bot = TeleBot(token_bot, state_storage=state_storage)
@@ -23,7 +25,6 @@ db = English_DB(db_username, db_password)
 # other
 interface = Interface()
 users_now = {} # "user id:" "user object"
-
 
 
 def check_in_user(message):
@@ -42,10 +43,10 @@ def check_in_user(message):
 
     return is_new
 
+
 @bot.message_handler(commands=['start'])
 def menu(message):
     check_in_user(message)    
-    
     bot.send_message(message.chat.id,
                      text='Choose action',
                      reply_markup=interface.menu())
@@ -136,7 +137,6 @@ def end(message):
     
 
 def check_answer(message):
-    '''Checks if user's answer is correct'''
     text = message.text
     user_id = message.from_user.id
     with bot.retrieve_data(user_id, message.chat.id) as data:
@@ -168,7 +168,6 @@ def greeting(message):
     bot.send_message(message.chat.id, interface.greeting)
 
 
-
 bot.add_custom_filter(custom_filters.StateFilter(bot))
-
+print('Bot is running')
 bot.infinity_polling(skip_pending=True)

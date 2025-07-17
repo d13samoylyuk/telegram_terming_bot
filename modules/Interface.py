@@ -1,3 +1,4 @@
+import os
 from telebot import types
 
 from modules.files import read_json_file
@@ -50,3 +51,7 @@ class Interface:
     def error_decode(self, error_code):
         error_dict = read_json_file(ERRORS_TERMS)
         return error_dict[error_code]
+
+
+def clear_terminal():
+    os.system('cls')

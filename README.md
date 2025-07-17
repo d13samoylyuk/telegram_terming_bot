@@ -5,7 +5,7 @@ This bot uses dictionary to create shuffled sets of word cards to learn. This re
 You may experience using the bot [here](https://t.me/d13english_bot).
 
 ## Starting
-At first launch the program asks for the Telegram bot token and database credentials. If all past, then the program asks if the signing data should be saved. If yes, then the data is saved to .env file in the [config](config) folder.
+At first launch the program asks for the Telegram bot token and database credentials. If all past, then the program asks if the signing data should be saved. If yes, then the data is saved to .env file to the [data](data) folder.
 
 The tables are created automatically in the database. The dictionary is loaded from [rus_eng_dict.csv](data/rus_eng_dict.csv) file which might be modified, but must be existing and have the same structure. 
 
@@ -42,6 +42,8 @@ The learning session is ended and the user is returned to the menu.
   -  controling the program's configuration
   -  changing the dictionary
   -  changing the bot's scripted phrases without editing the code and a need to restart the bot
+  -  adding admin privileges to users
+-  In-chat bot's configuration and control for users with admin privileges
 - Advencing the learning process with:
   -  algorithmic understanding of user's learning progress, delaying and removing learned words automatically
 -  Robust errors handling
