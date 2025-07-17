@@ -29,6 +29,9 @@ The program sends the next word to learn. Might be used as "skip" option.
 ### /end
 The learning session is ended and the user is returned to the menu.
 
+## Database's scheme:
+<img src="readme_files/DB_scheme.jpg" alt="Database's scheme" width="80%"/>
+
 ## Usage example screenshots
 
 ### Learning:
@@ -48,6 +51,3 @@ The learning session is ended and the user is returned to the menu.
   -  algorithmic understanding of user's learning progress, delaying and removing learned words automatically
 -  Robust errors handling
 -  Shifting to a general Term-Definitional concept of the program, untying from only English-Russian teacher
-
-## Database's scheme:
-<img src="readme_files/DB_scheme.jpg" alt="Database's scheme" width="80%"/>
